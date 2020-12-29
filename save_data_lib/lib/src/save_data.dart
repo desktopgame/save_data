@@ -34,6 +34,12 @@ class SaveData {
     return Optional.empty();
   }
 
+  void discard(String name) {
+    if (_storage.containsKey(name)) {
+      _storage.remove(name);
+    }
+  }
+
   Future<T> load<T>(String name) async {
     var prefs = await SharedPreferences.getInstance();
     if (_storage.containsKey(name)) {
