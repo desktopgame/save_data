@@ -36,6 +36,14 @@ class AppDataProvider implements Provider {
     SaveData.instance.register("AppData", AppDataProvider());
   }
 
+  static Optional<AppData> provide() {
+    return SaveData.instance.cache("AppData");
+  }
+
+  static void discard() {
+    SaveData.instance.discard("AppData");
+  }
+
   static Future<AppData> load() async {
     return await SaveData.instance.load("AppData");
   }

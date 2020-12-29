@@ -66,6 +66,14 @@ class MyGenerator extends GeneratorForAnnotation<Content> {
         '    SaveData.instance.register("${klass.name}", ${klass.name}Provider());');
     buffer.writeln("  }");
     buffer.writeln("");
+    buffer.writeln('  static Optional<${klass.name}> provide() {');
+    buffer.writeln('    return SaveData.instance.cache("${klass.name}");');
+    buffer.writeln("  }");
+    buffer.writeln("");
+    buffer.writeln('  static void discard() {');
+    buffer.writeln('    SaveData.instance.discard("${klass.name}");');
+    buffer.writeln("  }");
+    buffer.writeln("");
     buffer.writeln('  static Future<${klass.name}> load() async {');
     buffer.writeln('    return await SaveData.instance.load("${klass.name}");');
     buffer.writeln("  }");
