@@ -27,6 +27,13 @@ class SaveData {
     _map[name] = provider;
   }
 
+  Optional<T> cache<T>(String name) {
+    if (_storage.containsKey(name)) {
+      return Optional.of(_storage[name] as T);
+    }
+    return Optional.empty();
+  }
+
   Future<T> load<T>(String name) async {
     var prefs = await SharedPreferences.getInstance();
     if (_storage.containsKey(name)) {
