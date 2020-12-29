@@ -1,7 +1,7 @@
-library save_data_generator;
+import 'package:build/build.dart';
+import 'package:source_gen/source_gen.dart';
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+import 'src/generator.dart';
+
+Builder myBuilder(BuilderOptions options) =>
+    LibraryBuilder(MyGenerator(), generatedExtension: ".save_data.dart");
