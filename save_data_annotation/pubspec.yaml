@@ -1,5 +1,5 @@
 name: save_data_annotation
-description: A new Flutter package project.
+description: annotation that support class serialize/deserialize code generation via the `save_data_lib` package.
 version: 0.0.1
 author: desktopgame
 homepage: https://github.com/desktopgame/save_data

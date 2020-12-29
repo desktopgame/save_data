@@ -1,5 +1,5 @@
 name: save_data_generator
-description: A new Flutter package project.
+description: convert class to json, and save to shared preferences for flutter.
 version: 0.0.1
 author: desktopgame
 homepage: https://github.com/desktopgame/save_data
