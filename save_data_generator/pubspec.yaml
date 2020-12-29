@@ -11,6 +11,14 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  build: ^1.6.0
+  analyzer: ^0.41.1
+  source_gen: ^0.9.10+1
+  code_builder: ^3.5.0
+  json_serializable: ^3.5.1
+  json_annotation: ^3.1.1
+  save_data_lib:
+    path: ../save_data_lib
 
 dev_dependencies:
   flutter_test:
