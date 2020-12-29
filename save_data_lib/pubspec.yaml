@@ -14,8 +14,7 @@ dependencies:
   optional: ^5.0.0+1
   shared_preferences: ^0.5.12+4
   logging: ^0.11.4
-  save_data_annotation:
-    path: ../save_data_annotation
+  save_data_annotation: ^1.0.0
 
 dev_dependencies:
   flutter_test:

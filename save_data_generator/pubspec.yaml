@@ -17,8 +17,7 @@ dependencies:
   code_builder: ^3.5.0
   #json_serializable: ^3.5.1
   json_annotation: ^3.1.1
-  save_data_annotation:
-    path: ../save_data_annotation
+  save_data_annotation: ^1.0.0
 
 dev_dependencies:
   #flutter_test:
