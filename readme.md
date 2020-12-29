@@ -73,5 +73,5 @@ await AppDataProvider.save()
 ### provide
 Returns the value cached by the provider.
 ````
-await AppDataProvider.provide()
+AppDataProvider.provide()
 ````
