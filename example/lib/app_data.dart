@@ -8,7 +8,10 @@ part 'app_data.g.dart';
 class AppData {
   String name;
   int age;
-  AppData();
+  AppData() {
+    this.name = "";
+    this.age = 0;
+  }
   factory AppData.fromJson(Map json) => _$AppDataFromJson(json);
   Map<String, dynamic> toJson() => _$AppDataToJson(this);
 }
