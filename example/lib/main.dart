@@ -1,7 +1,16 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
+import './app_data.dart';
+import './app_data.save_data.dart';
+import 'package:save_data_lib/save_data_lib.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  AppDataProvider.setup();
+  await AppDataProvider.load();
   runApp(MyApp());
+  //await AppDataProvider.save();
 }
 
 class MyApp extends StatelessWidget {
@@ -50,16 +59,23 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  final myController = TextEditingController();
 
-  void _incrementCounter() {
+  @override
+  void initState() {
+    super.initState();
+    myController.text = AppDataProvider.provide().value.name;
+  }
+
+  void updateName(String name) {
     setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
+      AppDataProvider.provide().value.name = name;
+    });
+  }
+
+  void updateAge(int age) {
+    setState(() {
+      AppDataProvider.provide().value.age = age;
     });
   }
 
@@ -78,40 +94,69 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
         child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
+            Row(
+              children: [
+                Text('Name'),
+                Container(
+                  width: 200,
+                  child: TextFormField(
+                    controller: myController,
+                    onChanged: (e) {
+                      updateName(e);
+                    },
+                  ),
+                )
+              ],
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+            Row(
+              children: [
+                Text('Age'),
+                Slider(
+                  min: 0,
+                  max: 100,
+                  value: AppDataProvider.provide().value.age.toDouble(),
+                  onChanged: (e) {
+                    updateAge(e.toInt());
+                  },
+                )
+              ],
             ),
+            Row(children: [
+              RaisedButton(
+                  onPressed: () async {
+                    await AppDataProvider.save();
+                  },
+                  child: Text("Save")),
+              RaisedButton(
+                  onPressed: () async {
+                    AppDataProvider.discard();
+                    await AppDataProvider.load();
+                    setState(() {
+                      myController.text = AppDataProvider.provide().value.name;
+                    });
+                  },
+                  child: Text("Load")),
+              RaisedButton(
+                  onPressed: () async {
+                    AppDataProvider.discard();
+                    (await SharedPreferences.getInstance()).remove("AppData");
+                    await SaveData.instance.load("AppData");
+                    setState(() {
+                      myController.text = AppDataProvider.provide().value.name;
+                    });
+                  },
+                  child: Text("Clear"))
+            ]),
+            Row(
+              children: [
+                Text(json.encode(AppDataProvider.provide().value.toJson())),
+              ],
+            )
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
