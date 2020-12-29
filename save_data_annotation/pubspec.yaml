@@ -1,7 +1,7 @@
 name: save_data_annotation
 description: annotation that support class serialize/deserialize code generation via the `save_data_lib` package.
 version: 1.0.0
-author: desktopgame
+#author: desktopgame
 homepage: https://github.com/desktopgame/save_data
 
 environment:

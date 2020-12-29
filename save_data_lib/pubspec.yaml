@@ -1,7 +1,7 @@
 name: save_data_lib
 description: convert class to json, and save to shared preferences for flutter.
 version: 1.0.0
-author: desktopgame
+#author: desktopgame
 homepage: https://github.com/desktopgame/save_data
 
 environment:
