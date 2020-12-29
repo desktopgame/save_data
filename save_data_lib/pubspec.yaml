@@ -1,8 +1,8 @@
 name: save_data_lib
 description: A new Flutter package project.
 version: 0.0.1
-author:
-homepage:
+author: desktopgame
+homepage: https://github.com/desktopgame/save_data
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
