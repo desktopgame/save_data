@@ -1,0 +1,14 @@
+targets:
+  $default:
+    builders:
+      save_data_generator:
+        enabled: true
+
+builders:
+  save_data_generator:
+    import: "package:save_data_generator/save_data_generator.dart"
+    builder_factories: ["myBuilder"]
+    build_extensions: {".dart": [".save_data.g.dart"]}
+    auto_apply: dependents
+    build_to: source
+    applies_builders: ["source_gen|combining_builder"]
