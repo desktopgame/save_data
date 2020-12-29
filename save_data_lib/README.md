@@ -7,6 +7,7 @@ Add packages to your pubspec.yaml.
 ````.yaml
 dependencies:
   save_data_lib: ^1.0.0
+  save_data_annotation: ^1.0.0
 
 dev_dependencies:
   build_runner: ^1.10.11
