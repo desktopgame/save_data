@@ -36,7 +36,7 @@ class MyGenerator extends GeneratorForAnnotation<Content> {
     buffer.writeln("import 'package:optional/optional.dart';");
     buffer.writeln("import 'package:save_data_lib/save_data_lib.dart';");
     buffer.writeln("");
-    buffer.writeln('class ${klass.name}Provider {');
+    buffer.writeln('class ${klass.name}Provider implements Provider {');
     buffer.writeln("  Optional<Object> _cache = Optional.empty();");
     buffer.writeln("");
     buffer.writeln("  @override");

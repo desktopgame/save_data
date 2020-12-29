@@ -9,7 +9,7 @@ import './app_data.dart';
 import 'package:optional/optional.dart';
 import 'package:save_data_lib/save_data_lib.dart';
 
-class AppDataProvider {
+class AppDataProvider implements Provider {
   Optional<Object> _cache = Optional.empty();
 
   @override
