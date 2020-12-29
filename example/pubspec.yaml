@@ -27,6 +27,8 @@ dependencies:
   json_annotation: ^3.1.1
   save_data_lib:
     path: ../save_data_lib
+  save_data_annotation:
+    path: ../save_data_annotation
 
 
   # The following adds the Cupertino Icons font to your application.

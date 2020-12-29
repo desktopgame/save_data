@@ -415,6 +415,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.5"
+  save_data_annotation:
+    dependency: "direct main"
+    description:
+      path: "../save_data_annotation"
+      relative: true
+    source: path
+    version: "0.0.1"
   save_data_generator:
     dependency: "direct dev"
     description:
