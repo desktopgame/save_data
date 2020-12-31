@@ -416,26 +416,26 @@ packages:
     source: hosted
     version: "2.1.5"
   save_data_annotation:
-    dependency: "direct main"
+    dependency: transitive
     description:
-      path: "../save_data_annotation"
-      relative: true
-    source: path
-    version: "0.0.1"
+      name: save_data_annotation
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0"
   save_data_generator:
     dependency: "direct dev"
     description:
       path: "../save_data_generator"
       relative: true
     source: path
-    version: "0.0.1"
+    version: "1.0.0"
   save_data_lib:
     dependency: "direct main"
     description:
       path: "../save_data_lib"
       relative: true
     source: path
-    version: "0.0.1"
+    version: "1.0.0"
   shared_preferences:
     dependency: transitive
     description:
